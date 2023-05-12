@@ -47,8 +47,7 @@ class Solution:
         segs = []
         alls = set()
         for x1, y1, x2, y2 in rectangles:
-            segs.append((x1, y1, y2, 1))
-            segs.append((x2, y1, y2, -1))
+            segs.extend(((x1, y1, y2, 1), (x2, y1, y2, -1)))
             alls.update([y1, y2])
 
         segs.sort()

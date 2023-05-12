@@ -6,9 +6,8 @@ class Solution:
             if a + b > 0 and num[0] == '0':
                 return False
             for i in range(1, len(num) + 1):
-                if a + b == int(num[:i]):
-                    if dfs(b, a + b, num[i:]):
-                        return True
+                if a + b == int(num[:i]) and dfs(b, a + b, num[i:]):
+                    return True
             return False
 
         n = len(num)

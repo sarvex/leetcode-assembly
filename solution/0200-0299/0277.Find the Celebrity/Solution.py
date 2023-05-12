@@ -10,7 +10,6 @@ class Solution:
             if knows(ans, i):
                 ans = i
         for i in range(n):
-            if ans != i:
-                if knows(ans, i) or not knows(i, ans):
-                    return -1
+            if ans != i and (knows(ans, i) or not knows(i, ans)):
+                return -1
         return ans

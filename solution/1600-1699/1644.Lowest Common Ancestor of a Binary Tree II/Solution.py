@@ -18,7 +18,7 @@ class Solution:
             nonlocal ans
             if l and r:
                 ans = root
-            if (l or r) and (root.val == p.val or root.val == q.val):
+            if (l or r) and root.val in [p.val, q.val]:
                 ans = root
             return l or r or root.val == p.val or root.val == q.val
 

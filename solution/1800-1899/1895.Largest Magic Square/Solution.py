@@ -28,9 +28,7 @@ class Solution:
                 s += grid[i][j]
                 i += 1
                 j -= 1
-            if s != val:
-                return False
-            return True
+            return s == val
 
         for k in range(min(m, n), 1, -1):
             i = 0

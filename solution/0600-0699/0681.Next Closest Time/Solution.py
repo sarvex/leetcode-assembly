@@ -12,7 +12,7 @@ class Solution:
                 p = int(curr[:2]) * 60 + int(curr[2:])
                 if t < p < t + d:
                     d = p - t
-                    ans = curr[:2] + ':' + curr[2:]
+                    ans = f'{curr[:2]}:{curr[2:]}'
                 return
             for c in s:
                 dfs(curr + c)

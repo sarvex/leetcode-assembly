@@ -3,7 +3,7 @@ class Solution:
         def dfs(i, fa, x):
             res = nums[i]
             for j in g[i]:
-                if j != fa and j != x:
+                if j not in [fa, x]:
                     res ^= dfs(j, i, x)
             return res
 
@@ -11,7 +11,7 @@ class Solution:
             nonlocal s, s1, ans
             res = nums[i]
             for j in g[i]:
-                if j != fa and j != x:
+                if j not in [fa, x]:
                     a = dfs2(j, i, x)
                     res ^= a
                     b = s1 ^ a

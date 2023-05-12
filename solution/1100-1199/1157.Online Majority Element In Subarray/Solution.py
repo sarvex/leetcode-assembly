@@ -34,10 +34,7 @@ class SegmentTree:
         x2, cnt2 = self.query(u << 1 | 1, l, r)
         if x1 == x2:
             return x1, cnt1 + cnt2
-        if cnt1 >= cnt2:
-            return x1, cnt1 - cnt2
-        else:
-            return x2, cnt2 - cnt1
+        return (x1, cnt1 - cnt2) if cnt1 >= cnt2 else (x2, cnt2 - cnt1)
 
     def pushup(self, u):
         if self.tr[u << 1].x == self.tr[u << 1 | 1].x:

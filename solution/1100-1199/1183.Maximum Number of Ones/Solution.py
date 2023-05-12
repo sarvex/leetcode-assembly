@@ -3,7 +3,7 @@ class Solution:
         self, width: int, height: int, sideLength: int, maxOnes: int
     ) -> int:
         x = sideLength
-        cnt = [0] * (x * x)
+        cnt = [0] * x**2
         for i in range(width):
             for j in range(height):
                 k = (i % x) * x + (j % x)

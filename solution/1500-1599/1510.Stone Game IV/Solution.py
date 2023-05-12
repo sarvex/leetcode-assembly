@@ -5,7 +5,7 @@ class Solution:
             if i <= 0:
                 return False
             j = 1
-            while (k := (i - j * j)) >= 0:
+            while (k := i - j**2) >= 0:
                 if not dfs(k):
                     return True
                 j += 1

@@ -14,12 +14,12 @@ class Solution:
                 if i == k:
                     t[i][k] = True
                 else:
-                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
+                    t[i][k] = all(picture[i][j] == picture[k][j] for j in range(n))
                 t[k][i] = t[i][k]
         res = 0
         for i in range(m):
             if rows[i] == target:
                 for j in range(n):
-                    if len(cols[j]) == target and all([t[i][k] for k in cols[j]]):
+                    if len(cols[j]) == target and all(t[i][k] for k in cols[j]):
                         res += 1
         return res

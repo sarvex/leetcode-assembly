@@ -37,6 +37,4 @@ class Solution:
         if target == '0000':
             return 0
         s = set(deadends)
-        if '0000' in s:
-            return -1
-        return bfs()
+        return -1 if '0000' in s else bfs()

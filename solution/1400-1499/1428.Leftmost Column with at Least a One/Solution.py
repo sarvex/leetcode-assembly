@@ -20,8 +20,5 @@ class Solution:
                 else:
                     left = mid + 1
             if binaryMatrix.get(row, left) == 1:
-                if res == -1:
-                    res = left
-                else:
-                    res = min(res, left)
+                res = left if res == -1 else min(res, left)
         return res

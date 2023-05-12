@@ -11,7 +11,7 @@ class Solution:
                         if (i >> k & 1) and k != j:
                             s = nums[j] + nums[k]
                             t = int(sqrt(s))
-                            if t * t == s:
+                            if t**2 == s:
                                 f[i][j] += f[i ^ (1 << j)][k]
 
         ans = sum(f[(1 << n) - 1][j] for j in range(n))

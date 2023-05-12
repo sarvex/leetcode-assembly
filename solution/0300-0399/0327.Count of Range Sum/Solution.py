@@ -23,8 +23,7 @@ class BinaryIndexedTree:
 class Solution:
     def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
         presum = [0]
-        for v in nums:
-            presum.append(presum[-1] + v)
+        presum.extend(presum[-1] + v for v in nums)
         alls = set()
         for s in presum:
             alls.add(s)

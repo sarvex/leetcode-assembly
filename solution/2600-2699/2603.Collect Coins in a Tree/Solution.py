@@ -13,7 +13,7 @@ class Solution:
                 if coins[j] == 0 and len(g[j]) == 1:
                     q.append(j)
             g[i].clear()
-        for k in range(2):
+        for _ in range(2):
             q = [i for i in range(n) if len(g[i]) == 1]
             for i in q:
                 for j in g[i]:

@@ -14,6 +14,4 @@ class Solution:
         o = sum(board[i][j] == 'O' for i in range(3) for j in range(3))
         if x != o and x - 1 != o:
             return False
-        if win('X') and x - 1 != o:
-            return False
-        return not (win('O') and x != o)
+        return False if win('X') and x - 1 != o else not win('O') or x == o

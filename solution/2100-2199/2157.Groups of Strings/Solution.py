@@ -30,7 +30,7 @@ class Solution:
             mx = max(mx, size[x])
             if size[x] > 1:
                 n -= 1
-        for x in p.keys():
+        for x in p:
             for i in range(26):
                 union(x, x ^ (1 << i))
                 if (x >> i) & 1:

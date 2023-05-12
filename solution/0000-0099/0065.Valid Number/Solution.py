@@ -11,9 +11,15 @@ class Solution:
         dot = e = 0
         j = i
         while j < n:
-            if s[j] == '.':
-                if e or dot:
-                    return False
+            if (
+                s[j] == '.'
+                and (e or dot)
+                or s[j] != '.'
+                and s[j] not in 'eE'
+                and not s[j].isnumeric()
+            ):
+                return False
+            elif s[j] == '.':
                 dot += 1
             elif s[j] in 'eE':
                 if e or j == i or j == n - 1:
@@ -23,7 +29,5 @@ class Solution:
                     j += 1
                     if j == n - 1:
                         return False
-            elif not s[j].isnumeric():
-                return False
             j += 1
         return True

@@ -47,12 +47,10 @@ class SegmentTree:
             return 0
         if self.tr[u].l == self.tr[u].r:
             return self.tr[u].l
-        mid = (self.tr[u].l + self.tr[u].r) >> 1
         if self.tr[u << 1].mx >= k:
             return self.query_idx(u << 1, l, r, k)
-        if r > mid:
-            return self.query_idx(u << 1 | 1, l, r, k)
-        return 0
+        mid = (self.tr[u].l + self.tr[u].r) >> 1
+        return self.query_idx(u << 1 | 1, l, r, k) if r > mid else 0
 
     def pushup(self, u):
         self.tr[u].s = self.tr[u << 1].s + self.tr[u << 1 | 1].s

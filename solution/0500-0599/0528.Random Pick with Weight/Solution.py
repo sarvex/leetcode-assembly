@@ -1,8 +1,7 @@
 class Solution:
     def __init__(self, w: List[int]):
         self.s = [0]
-        for c in w:
-            self.s.append(self.s[-1] + c)
+        self.s.extend(self.s[-1] + c for c in w)
 
     def pickIndex(self) -> int:
         x = random.randint(1, self.s[-1])

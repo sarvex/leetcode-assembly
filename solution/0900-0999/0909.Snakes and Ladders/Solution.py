@@ -13,9 +13,9 @@ class Solution:
         while q:
             for _ in range(len(q)):
                 curr = q.popleft()
-                if curr == n * n:
+                if curr == n**2:
                     return ans
-                for next in range(curr + 1, min(curr + 7, n * n + 1)):
+                for next in range(curr + 1, min(curr + 7, n**2 + 1)):
                     i, j = get(next)
                     if board[i][j] != -1:
                         next = board[i][j]

@@ -6,7 +6,4 @@ class Solution:
         for a, b in zip(s, t):
             x = (ord(b) - ord(a) + 26) % 26
             cnt[x] += 1
-        for i in range(1, 26):
-            if i + 26 * (cnt[i] - 1) > k:
-                return False
-        return True
+        return all(i + 26 * (cnt[i] - 1) <= k for i in range(1, 26))

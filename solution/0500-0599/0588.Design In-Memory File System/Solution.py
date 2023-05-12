@@ -37,9 +37,7 @@ class FileSystem:
         node = self.root.search(path)
         if node is None:
             return []
-        if node.isFile:
-            return [node.name]
-        return sorted(node.children.keys())
+        return [node.name] if node.isFile else sorted(node.children.keys())
 
     def mkdir(self, path: str) -> None:
         self.root.insert(path, False)

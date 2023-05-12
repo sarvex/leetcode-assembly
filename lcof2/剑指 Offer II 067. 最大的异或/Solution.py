@@ -5,9 +5,7 @@ class Solution:
         for i in range(30, -1, -1):
             current = 1 << i
             mask = mask ^ current
-            s = set()
-            for num in nums:
-                s.add(num & mask)
+            s = {num & mask for num in nums}
             flag = max | current
             for prefix in s:
                 if prefix ^ flag in s:

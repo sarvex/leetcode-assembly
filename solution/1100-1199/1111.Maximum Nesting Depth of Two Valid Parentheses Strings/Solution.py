@@ -9,10 +9,9 @@ class Solution:
                 else:
                     b += 1
                     ans[i] = 1
+            elif a > b:
+                a -= 1
             else:
-                if a > b:
-                    a -= 1
-                else:
-                    b -= 1
-                    ans[i] = 1
+                b -= 1
+                ans[i] = 1
         return ans

@@ -21,8 +21,7 @@ class Trie:
             res.append(c)
             if node.v[(w[-1], len(w))] == 1:
                 break
-        n = len(w) - len(res) - 1
-        if n:
+        if n := len(w) - len(res) - 1:
             res.append(str(n))
         res.append(w[-1])
         t = ''.join(res)

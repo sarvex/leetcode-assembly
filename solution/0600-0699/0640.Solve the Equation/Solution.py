@@ -3,7 +3,7 @@ class Solution:
         def f(s):
             x = y = 0
             if s[0] != '-':
-                s = '+' + s
+                s = f'+{s}'
             i, n = 0, len(s)
             while i < n:
                 sign = 1 if s[i] == '+' else -1

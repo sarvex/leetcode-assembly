@@ -15,9 +15,7 @@ class Solution:
             if prev >= root.val:
                 return False
             prev = root.val
-            if not dfs(root.right):
-                return False
-            return True
+            return bool(dfs(root.right))
 
         prev = -inf
         return dfs(root)

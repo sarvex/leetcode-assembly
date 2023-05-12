@@ -12,8 +12,6 @@ class Solution:
                 target = head
             head = head.next
         target.val += 1
-        target = target.next
-        while target:
+        while target := target.next:
             target.val = 0
-            target = target.next
         return dummy if dummy.val else dummy.next

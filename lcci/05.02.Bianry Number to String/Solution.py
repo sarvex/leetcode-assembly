@@ -3,7 +3,7 @@ class Solution:
         ans = '0.'
         while len(ans) < 32 and num:
             num *= 2
-            x = int(num)
+            x = num
             ans += str(x)
             num -= x
         return 'ERROR' if num else ans

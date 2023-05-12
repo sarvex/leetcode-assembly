@@ -4,7 +4,7 @@ class Solution:
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
-        for k in g.keys():
+        for k in g:
             g[k] = nlargest(3, g[k], key=lambda x: scores[x])
         ans = -1
         for a, b in edges:

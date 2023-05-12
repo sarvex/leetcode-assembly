@@ -7,8 +7,7 @@ class Solution:
             s = mx = 0
             while j < n and colors[j] == colors[i]:
                 s += neededTime[j]
-                if mx < neededTime[j]:
-                    mx = neededTime[j]
+                mx = max(mx, neededTime[j])
                 j += 1
             if j - i > 1:
                 ans += s - mx

@@ -20,7 +20,7 @@ class Solution:
                         if (
                             c == '#'
                             or c.isupper()
-                            and (state & (1 << (ord(c) - ord('A')))) == 0
+                            and nxt & 1 << (ord(c) - ord('A')) == 0
                         ):
                             continue
                         if c.islower():

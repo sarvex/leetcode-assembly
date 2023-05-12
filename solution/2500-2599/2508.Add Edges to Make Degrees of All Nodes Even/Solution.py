@@ -5,7 +5,7 @@ class Solution:
             g[a].add(b)
             g[b].add(a)
         vs = [i for i, v in g.items() if len(v) & 1]
-        if len(vs) == 0:
+        if not vs:
             return True
         if len(vs) == 2:
             a, b = vs
@@ -16,9 +16,5 @@ class Solution:
             a, b, c, d = vs
             if a not in g[b] and c not in g[d]:
                 return True
-            if a not in g[c] and b not in g[d]:
-                return True
-            if a not in g[d] and b not in g[c]:
-                return True
-            return False
+            return a not in g[d] and b not in g[c] if a in g[c] or b in g[d] else True
         return False

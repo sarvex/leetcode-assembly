@@ -3,11 +3,7 @@ class Solution:
         letters = set(brokenLetters)
         res = 0
         for word in text.split():
-            find = False
-            for letter in letters:
-                if letter in word:
-                    find = True
-                    break
+            find = any(letter in word for letter in letters)
             if not find:
                 res += 1
         return res

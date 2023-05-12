@@ -4,8 +4,5 @@ class Solution:
         ans = 0
         for i in range(1, len(target)):
             a, b = target[:i], target[i:]
-            if a != b:
-                ans += cnt[a] * cnt[b]
-            else:
-                ans += cnt[a] * (cnt[a] - 1)
+            ans += cnt[a] * cnt[b] if a != b else cnt[a] * (cnt[a] - 1)
         return ans

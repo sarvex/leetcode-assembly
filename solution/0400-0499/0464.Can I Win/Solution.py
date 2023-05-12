@@ -10,6 +10,4 @@ class Solution:
             return False
 
         s = (1 + maxChoosableInteger) * maxChoosableInteger // 2
-        if s < desiredTotal:
-            return False
-        return dfs(0, 0)
+        return False if s < desiredTotal else dfs(0, 0)

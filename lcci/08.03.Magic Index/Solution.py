@@ -7,8 +7,6 @@ class Solution:
             left_index = find(nums, left, mid - 1)
             if left_index != -1:
                 return left_index
-            if nums[mid] == mid:
-                return mid
-            return find(nums, mid + 1, right)
+            return mid if nums[mid] == mid else find(nums, mid + 1, right)
 
         return find(nums, 0, len(nums) - 1)

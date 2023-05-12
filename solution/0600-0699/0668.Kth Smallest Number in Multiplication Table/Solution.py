@@ -3,9 +3,7 @@ class Solution:
         left, right = 1, m * n
         while left < right:
             mid = (left + right) >> 1
-            cnt = 0
-            for i in range(1, m + 1):
-                cnt += min(mid // i, n)
+            cnt = sum(min(mid // i, n) for i in range(1, m + 1))
             if cnt >= k:
                 right = mid
             else:

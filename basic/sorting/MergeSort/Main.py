@@ -24,10 +24,8 @@ def merge_sort(nums, left, right):
         tmp.append(nums[j])
         j += 1
 
-    j = 0
-    for i in range(left, right + 1):
+    for j, i in enumerate(range(left, right + 1)):
         nums[i] = tmp[j]
-        j += 1
 
 
 merge_sort(nums, 0, N - 1)

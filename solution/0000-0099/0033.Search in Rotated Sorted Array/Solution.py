@@ -9,9 +9,8 @@ class Solution:
                     right = mid
                 else:
                     left = mid + 1
+            elif nums[mid] < target <= nums[n - 1]:
+                left = mid + 1
             else:
-                if nums[mid] < target <= nums[n - 1]:
-                    left = mid + 1
-                else:
-                    right = mid
+                right = mid
         return left if nums[left] == target else -1

@@ -30,8 +30,7 @@ class Solution:
         tree = BinaryIndexedTree(n)
         for i in range(1, n + 1):
             for v in range(10):
-                q = pos[v]
-                if q:
+                if q := pos[v]:
                     j = q[0]
                     dist = tree.query(n) - tree.query(j) + j - i
                     if dist <= k:

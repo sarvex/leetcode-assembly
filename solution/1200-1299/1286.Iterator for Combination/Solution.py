@@ -7,10 +7,7 @@ class CombinationIterator:
     def next(self) -> str:
         while self.curr >= 0 and self.curr.bit_count() != self.size:
             self.curr -= 1
-        ans = []
-        for i in range(len(self.cs)):
-            if (self.curr >> i) & 1:
-                ans.append(self.cs[i])
+        ans = [self.cs[i] for i in range(len(self.cs)) if (self.curr >> i) & 1]
         self.curr -= 1
         return ''.join(ans[::-1])
 

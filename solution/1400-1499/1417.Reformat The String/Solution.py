@@ -6,9 +6,7 @@ class Solution:
             return ''
         if len(a) < len(b):
             a, b = b, a
-        ans = []
-        for x, y in zip(a, b):
-            ans.append(x + y)
+        ans = [x + y for x, y in zip(a, b)]
         if len(a) > len(b):
             ans.append(a[-1])
         return ''.join(ans)

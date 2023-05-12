@@ -7,7 +7,4 @@ class Solution:
         for i in range(n):
             chars[ord(s[i]) - ord('a')] += 1
             chars[ord(t[i]) - ord('a')] -= 1
-        for c in chars:
-            if c != 0:
-                return False
-        return True
+        return all(c == 0 for c in chars)

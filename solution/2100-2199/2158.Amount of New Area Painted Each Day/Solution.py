@@ -65,7 +65,7 @@ class Solution:
     def amountPainted(self, paint: List[List[int]]) -> List[int]:
         tree = SegmentTree()
         ans = []
-        for i, (start, end) in enumerate(paint):
+        for start, end in paint:
             l, r = start + 1, end
             v = tree.query(l, r)
             ans.append(r - l + 1 - v)

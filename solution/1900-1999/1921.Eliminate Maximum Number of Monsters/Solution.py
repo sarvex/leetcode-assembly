@@ -3,7 +3,4 @@ class Solution:
         n = len(dist)
         times = [(dist[i] - 1) // speed[i] for i in range(n)]
         times.sort()
-        for i in range(n):
-            if times[i] < i:
-                return i
-        return n
+        return next((i for i in range(n) if times[i] < i), n)

@@ -54,9 +54,7 @@ class MyCircularDeque:
         """
         Get the front item from the deque.
         """
-        if self.isEmpty():
-            return -1
-        return self.q[self.front]
+        return -1 if self.isEmpty() else self.q[self.front]
 
     def getRear(self) -> int:
         """

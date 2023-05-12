@@ -18,10 +18,10 @@ class Solution:
             i += 1
 
             # popd
-            while len(stk) > 0 and len(stk) > ident:
+            while stk and len(stk) > ident:
                 stk.pop()
 
-            if len(stk) > 0:
+            if stk:
                 cur += stk[-1] + 1
 
             # pushd

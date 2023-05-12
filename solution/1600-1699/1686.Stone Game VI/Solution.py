@@ -6,6 +6,4 @@ class Solution:
         b = sum(bobValues[v[1]] for i, v in enumerate(arr) if i % 2 == 1)
         if a > b:
             return 1
-        if a < b:
-            return -1
-        return 0
+        return -1 if a < b else 0

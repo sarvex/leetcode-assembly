@@ -7,14 +7,8 @@ class Solution:
             for b, y in cnt2.items():
                 if a * a % b == 0:
                     c = a * a // b
-                    if b == c:
-                        ans += x * y * (y - 1)
-                    else:
-                        ans += x * y * cnt2[c]
+                    ans += x * y * (y - 1) if b == c else x * y * cnt2[c]
                 if b * b % a == 0:
                     c = b * b // a
-                    if a == c:
-                        ans += x * (x - 1) * y
-                    else:
-                        ans += x * y * cnt1[c]
+                    ans += x * (x - 1) * y if a == c else x * y * cnt1[c]
         return ans >> 1

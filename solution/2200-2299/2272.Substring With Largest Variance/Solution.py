@@ -11,6 +11,5 @@ class Solution:
                 elif c == b:
                     f[1] = max(f[1] - 1, f[0] - 1)
                     f[0] = 0
-                if ans < f[1]:
-                    ans = f[1]
+                ans = max(ans, f[1])
         return ans

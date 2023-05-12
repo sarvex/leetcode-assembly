@@ -22,7 +22,7 @@ class Codec:
             if root is None:
                 res.append("#,")
                 return
-            res.append(str(root.val) + ",")
+            res.append(f"{str(root.val)},")
             preorder(root.left)
             preorder(root.right)
 
@@ -41,9 +41,7 @@ class Codec:
 
         def inner():
             first = vals.pop(0)
-            if first == '#':
-                return None
-            return TreeNode(int(first), inner(), inner())
+            return None if first == '#' else TreeNode(int(first), inner(), inner())
 
         return inner()
 

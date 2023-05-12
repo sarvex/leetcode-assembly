@@ -9,12 +9,6 @@ class Solution:
         i, j = startPos
         x, y = homePos
         ans = 0
-        if i < x:
-            ans += sum(rowCosts[i + 1 : x + 1])
-        else:
-            ans += sum(rowCosts[x:i])
-        if j < y:
-            ans += sum(colCosts[j + 1 : y + 1])
-        else:
-            ans += sum(colCosts[y:j])
+        ans += sum(rowCosts[i + 1 : x + 1]) if i < x else sum(rowCosts[x:i])
+        ans += sum(colCosts[j + 1 : y + 1]) if j < y else sum(colCosts[y:j])
         return ans

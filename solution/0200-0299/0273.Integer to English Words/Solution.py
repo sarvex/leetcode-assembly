@@ -43,10 +43,10 @@ class Solution:
             if num == 0:
                 return ''
             if num < 20:
-                return lt20[num] + ' '
+                return f'{lt20[num]} '
             if num < 100:
-                return tens[num // 10] + ' ' + transfer(num % 10)
-            return lt20[num // 100] + ' Hundred ' + transfer(num % 100)
+                return f'{tens[num // 10]} {transfer(num % 10)}'
+            return f'{lt20[num // 100]} Hundred {transfer(num % 100)}'
 
         res = []
         i, j = 1000000000, 0

@@ -5,6 +5,6 @@ class Solution:
         for i, d in enumerate(number):
             if d == digit:
                 last = i
-                if i + 1 < n and d < number[i + 1]:
+                if last + 1 < n and d < number[last + 1]:
                     break
         return number[:last] + number[last + 1 :]

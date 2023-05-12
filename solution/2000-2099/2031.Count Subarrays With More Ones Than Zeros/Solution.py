@@ -28,8 +28,7 @@ class Solution:
     def subarraysWithMoreZerosThanOnes(self, nums: List[int]) -> int:
         n = len(nums)
         s = [0]
-        for v in nums:
-            s.append(s[-1] + (v or -1))
+        s.extend(s[-1] + (v or -1) for v in nums)
         tree = BinaryIndexedTree(n + 1)
         MOD = int(1e9 + 7)
         ans = 0

@@ -17,7 +17,7 @@ class Solution:
             high = 0
             if not pq.empty():
                 high = -pq.queue[0][0]
-            if len(skys) > 0 and skys[-1][1] == high:
+            if skys and skys[-1][1] == high:
                 continue
             skys.append([line, high])
         return skys

@@ -4,9 +4,7 @@ class Solution:
             return nums[0]
         n = len(nums)
         if n == 1:
-            if k % 2:
-                return -1
-            return nums[0]
+            return -1 if k % 2 else nums[0]
         ans = max(nums[: k - 1], default=-1)
         if k < n:
             ans = max(ans, nums[k])

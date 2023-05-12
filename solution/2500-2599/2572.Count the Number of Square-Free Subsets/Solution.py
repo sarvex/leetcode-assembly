@@ -16,4 +16,4 @@ class Solution:
             for state in range((1 << n) - 1, 0, -1):
                 if state & mask == mask:
                     f[state] = (f[state] + cnt[x] * f[state ^ mask]) % mod
-        return sum(v for v in f) % mod - 1
+        return sum(f) % mod - 1

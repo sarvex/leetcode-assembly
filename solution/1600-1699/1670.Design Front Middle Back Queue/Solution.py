@@ -18,20 +18,14 @@ class FrontMiddleBackQueue:
     def popFront(self) -> int:
         if not self.q1 and not self.q2:
             return -1
-        if self.q1:
-            val = self.q1.popleft()
-        else:
-            val = self.q2.popleft()
+        val = self.q1.popleft() if self.q1 else self.q2.popleft()
         self.rebalance()
         return val
 
     def popMiddle(self) -> int:
         if not self.q1 and not self.q2:
             return -1
-        if len(self.q1) == len(self.q2):
-            val = self.q1.pop()
-        else:
-            val = self.q2.popleft()
+        val = self.q1.pop() if len(self.q1) == len(self.q2) else self.q2.popleft()
         self.rebalance()
         return val
 

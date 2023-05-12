@@ -44,7 +44,7 @@ class Solution:
         g = defaultdict(list)
         for i in range(len(words)):
             g[uf.find(i)].append(i)
-        for k in g.keys():
+        for k in g:
             g[k].sort(key=lambda i: words[i])
         sentence = text.split()
         ans = []

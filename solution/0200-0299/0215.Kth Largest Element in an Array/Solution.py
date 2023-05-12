@@ -16,9 +16,7 @@ class Solution:
                         break
                 if i < j:
                     nums[i], nums[j] = nums[j], nums[i]
-            if j < k:
-                return quick_sort(j + 1, right, k)
-            return quick_sort(left, j, k)
+            return quick_sort(j + 1, right, k) if j < k else quick_sort(left, j, k)
 
         n = len(nums)
         return quick_sort(0, n - 1, n - k)

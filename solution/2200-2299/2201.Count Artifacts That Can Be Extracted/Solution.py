@@ -10,5 +10,5 @@ class Solution:
                         return False
             return True
 
-        s = {(i, j) for i, j in dig}
+        s = set(dig)
         return sum(check(v) for v in artifacts)

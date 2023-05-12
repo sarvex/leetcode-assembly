@@ -3,7 +3,7 @@ class Cashier:
         self.i = 0
         self.n = n
         self.discount = discount
-        self.d = {product: price for product, price in zip(products, prices)}
+        self.d = dict(zip(products, prices))
 
     def getBill(self, product: List[int], amount: List[int]) -> float:
         self.i += 1

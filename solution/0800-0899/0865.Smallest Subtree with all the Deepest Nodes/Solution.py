@@ -13,8 +13,6 @@ class Solution:
             r, d2 = dfs(root.right)
             if d1 > d2:
                 return l, d1 + 1
-            if d1 < d2:
-                return r, d2 + 1
-            return root, d1 + 1
+            return (r, d2 + 1) if d1 < d2 else (root, d1 + 1)
 
         return dfs(root)[0]

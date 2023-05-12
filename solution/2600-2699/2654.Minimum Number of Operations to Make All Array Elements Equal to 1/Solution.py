@@ -1,8 +1,7 @@
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
-        cnt = nums.count(1)
-        if cnt:
+        if cnt := nums.count(1):
             return n - cnt
         mi = n + 1
         for i in range(n):

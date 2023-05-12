@@ -13,7 +13,7 @@ class Solution:
         while d:
             n = len(d)
             ans.append(d[0].val)
-            for i in range(n):
+            for _ in range(n):
                 node = d.popleft()
                 if node.right:
                     d.append(node.right)

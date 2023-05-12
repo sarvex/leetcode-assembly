@@ -3,7 +3,7 @@ class Solution:
         n = len(grid)
         q = deque((i, j) for i in range(n) for j in range(n) if grid[i][j])
         ans = -1
-        if len(q) in (0, n * n):
+        if len(q) in (0, n**2):
             return ans
         dirs = (-1, 0, 1, 0, -1)
         while q:

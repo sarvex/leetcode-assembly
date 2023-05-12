@@ -15,8 +15,8 @@ def clang_format():
     for root, _, files in os.walk(path):
         for name in files:
             for suf in suffix:
-                if name.endswith('.' + suf):
-                    local_path = root + '/' + name
+                if name.endswith(f'.{suf}'):
+                    local_path = f'{root}/{name}'
                     command = f'clang-format -i --style=file "{local_path}"'
                     print(command)
                     os.system(command)
@@ -24,7 +24,7 @@ def clang_format():
     for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.md'):
-                p1 = root + '/' + name
+                p1 = f'{root}/{name}'
                 with open(p1, 'r', encoding='utf-8') as f:
                     content = f.read()
                     x = content
@@ -54,7 +54,7 @@ def format_py():
     for root, _, files in os.walk(path):
         for name in files:
             if name.endswith('.md'):
-                p1 = root + '/' + name
+                p1 = f'{root}/{name}'
                 with open(p1, 'r', encoding='utf-8') as f:
                     content = f.read()
                     x = content
@@ -63,7 +63,7 @@ def format_py():
                     continue
                 print(p1)
                 for v in res:
-                    p2 = root + "/tmp.py"
+                    p2 = f"{root}/tmp.py"
                     with open(p2, 'w', encoding='utf-8') as f:
                         f.write(v)
                     os.system(f'black -S "{p2}"')

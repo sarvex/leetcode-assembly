@@ -4,7 +4,7 @@ class Solution:
     ) -> bool:
         if len(sentence1) != len(sentence2):
             return False
-        s = {(a, b) for a, b in similarPairs}
+        s = set(similarPairs)
         return all(
             a == b or (a, b) in s or (b, a) in s for a, b in zip(sentence1, sentence2)
         )

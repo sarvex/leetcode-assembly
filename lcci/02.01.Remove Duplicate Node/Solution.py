@@ -9,8 +9,7 @@ class Solution:
     def removeDuplicateNodes(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:
             return head
-        cache = set()
-        cache.add(head.val)
+        cache = {head.val}
         cur, p = head, head.next
         while p:
             if p.val not in cache:

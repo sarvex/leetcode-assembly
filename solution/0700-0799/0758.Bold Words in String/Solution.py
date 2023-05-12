@@ -50,9 +50,7 @@ class Solution:
             st, ed = t[j]
             if i < st:
                 ans.append(s[i:st])
-            ans.append('<b>')
-            ans.append(s[st : ed + 1])
-            ans.append('</b>')
+            ans.extend(('<b>', s[st : ed + 1], '</b>'))
             j += 1
             i = ed + 1
 

@@ -4,7 +4,7 @@ class Solution:
             if x < 2:
                 return False
             v = 2
-            while v * v <= x:
+            while v**2 <= x:
                 if x % v == 0:
                     return False
                 v += 1

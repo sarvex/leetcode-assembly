@@ -6,17 +6,17 @@ class Solution:
             return p[x]
 
         n = len(grid)
-        p = list(range(n * n))
-        hi = [0] * (n * n)
+        p = list(range(n**2))
+        hi = [0] * n**2
         for i, row in enumerate(grid):
             for j, h in enumerate(row):
                 hi[h] = i * n + j
-        for t in range(n * n):
+        for t in range(n**2):
             i, j = hi[t] // n, hi[t] % n
             for a, b in [(0, -1), (0, 1), (1, 0), (-1, 0)]:
                 x, y = i + a, j + b
                 if 0 <= x < n and 0 <= y < n and grid[x][y] <= t:
                     p[find(x * n + y)] = find(hi[t])
-                if find(0) == find(n * n - 1):
+                if find(0) == find(n**2 - 1):
                     return t
         return -1

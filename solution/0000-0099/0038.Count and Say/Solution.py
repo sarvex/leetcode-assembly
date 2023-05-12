@@ -8,8 +8,7 @@ class Solution:
                 j = i
                 while j < len(s) and s[j] == s[i]:
                     j += 1
-                t.append(str(j - i))
-                t.append(str(s[i]))
+                t.extend((str(j - i), str(s[i])))
                 i = j
             s = ''.join(t)
         return s

@@ -9,7 +9,4 @@ class Solution:
                 i += 1
             t.append(cnt)
             i += 1
-        ans = 0
-        for i in range(1, len(t)):
-            ans += min(t[i - 1], t[i])
-        return ans
+        return sum(min(t[i - 1], t[i]) for i in range(1, len(t)))

@@ -5,6 +5,5 @@ class Solution:
         for c in order:
             ans.append(c * cnt[c])
             cnt[c] = 0
-        for c, v in cnt.items():
-            ans.append(c * v)
+        ans.extend(c * v for c, v in cnt.items())
         return ''.join(ans)

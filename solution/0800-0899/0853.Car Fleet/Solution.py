@@ -6,14 +6,11 @@ class Solution:
         :type speed: List[int]
         :rtype: int
         """
-        car = [(pos, spe) for pos, spe in zip(position, speed)]
+        car = list(zip(position, speed))
         car.sort(reverse=True)
         time = [(target - pos) / spe for pos, spe in car]
         ls = []
         for i in time:
-            if not ls:
+            if ls and i > ls[-1] or not ls:
                 ls.append(i)
-            else:
-                if i > ls[-1]:
-                    ls.append(i)
         return len(ls)

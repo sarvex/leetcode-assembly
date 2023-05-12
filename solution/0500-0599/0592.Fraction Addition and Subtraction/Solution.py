@@ -2,7 +2,7 @@ class Solution:
     def fractionAddition(self, expression: str) -> str:
         x, y = 0, 6 * 7 * 8 * 9 * 10
         if expression[0].isdigit():
-            expression = '+' + expression
+            expression = f'+{expression}'
         i, n = 0, len(expression)
         while i < n:
             sign = -1 if expression[i] == '-' else 1

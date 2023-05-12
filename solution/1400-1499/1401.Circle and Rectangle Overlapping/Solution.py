@@ -18,4 +18,4 @@ class Solution:
             dy = yCenter - y1
         elif y2 < yCenter:
             dy = yCenter - y2
-        return dx * dx + dy * dy <= radius * radius
+        return dx**2 + dy**2 <= radius**2

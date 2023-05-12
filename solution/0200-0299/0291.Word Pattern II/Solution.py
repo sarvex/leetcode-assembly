@@ -7,9 +7,8 @@ class Solution:
                 return False
             for k in range(j, n):
                 t = s[j : k + 1]
-                if d.get(pattern[i]) == t:
-                    if dfs(i + 1, k + 1):
-                        return True
+                if d.get(pattern[i]) == t and dfs(i + 1, k + 1):
+                    return True
                 if pattern[i] not in d and t not in vis:
                     d[pattern[i]] = t
                     vis.add(t)

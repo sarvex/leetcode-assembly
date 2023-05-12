@@ -7,4 +7,4 @@ class Solution:
                 right = mid
             else:
                 left = mid + 1
-        return left * left == num
+        return left**2 == num

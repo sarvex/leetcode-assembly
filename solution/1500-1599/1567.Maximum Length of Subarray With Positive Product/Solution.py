@@ -14,10 +14,7 @@ class Solution:
             elif num < 0:
                 pf1, pf2 = f1, f2
                 f2 = pf1 + 1
-                if pf2 > 0:
-                    f1 = pf2 + 1
-                else:
-                    f1 = 0
+                f1 = pf2 + 1 if pf2 > 0 else 0
             else:
                 f1 = 0
                 f2 = 0

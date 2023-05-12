@@ -29,4 +29,4 @@ class Solution:
 
         del cnt[(minX, minY)], cnt[(minX, maxY)], cnt[(maxX, maxY)], cnt[(maxX, minY)]
 
-        return all(c == 2 or c == 4 for c in cnt.values())
+        return all(c in [2, 4] for c in cnt.values())

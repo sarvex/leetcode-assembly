@@ -6,13 +6,13 @@ class FooBar:
         self.barLock.acquire()
 
     def foo(self, printFoo: 'Callable[[], None]') -> None:
-        for i in range(self.n):
+        for _ in range(self.n):
             self.fooLock.acquire()
             printFoo()
             self.barLock.release()
 
     def bar(self, printBar: 'Callable[[], None]') -> None:
-        for i in range(self.n):
+        for _ in range(self.n):
             self.barLock.acquire()
             printBar()
             self.fooLock.release()

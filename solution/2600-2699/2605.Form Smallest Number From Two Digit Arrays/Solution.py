@@ -5,8 +5,7 @@ class Solution:
             mask1 |= 1 << x
         for x in nums2:
             mask2 |= 1 << x
-        mask = mask1 & mask2
-        if mask:
+        if mask := mask1 & mask2:
             return (mask & -mask).bit_length() - 1
         a = (mask1 & -mask1).bit_length() - 1
         b = (mask2 & -mask2).bit_length() - 1

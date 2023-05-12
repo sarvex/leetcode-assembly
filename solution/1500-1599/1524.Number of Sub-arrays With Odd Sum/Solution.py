@@ -5,6 +5,6 @@ class Solution:
         ans = s = 0
         for x in arr:
             s += x
-            ans = (ans + cnt[s & 1 ^ 1]) % mod
+            ans = (ans + cnt[s & 0]) % mod
             cnt[s & 1] += 1
         return ans

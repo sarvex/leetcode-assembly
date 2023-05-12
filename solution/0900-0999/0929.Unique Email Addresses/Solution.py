@@ -6,5 +6,5 @@ class Solution:
             local = local.replace('.', '')
             if (i := local.find('+')) != -1:
                 local = local[:i]
-            s.add(local + '@' + domain)
+            s.add(f'{local}@{domain}')
         return len(s)

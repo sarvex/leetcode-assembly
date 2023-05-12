@@ -17,14 +17,13 @@ class Solution:
             elif j == 0:
                 i -= 1
                 ans.append(str1[i])
+            elif f[i][j] == f[i - 1][j]:
+                i -= 1
+                ans.append(str1[i])
+            elif f[i][j] == f[i][j - 1]:
+                j -= 1
+                ans.append(str2[j])
             else:
-                if f[i][j] == f[i - 1][j]:
-                    i -= 1
-                    ans.append(str1[i])
-                elif f[i][j] == f[i][j - 1]:
-                    j -= 1
-                    ans.append(str2[j])
-                else:
-                    i, j = i - 1, j - 1
-                    ans.append(str1[i])
+                i, j = i - 1, j - 1
+                ans.append(str1[i])
         return ''.join(ans[::-1])

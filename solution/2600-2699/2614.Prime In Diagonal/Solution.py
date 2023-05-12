@@ -1,9 +1,7 @@
 class Solution:
     def diagonalPrime(self, nums: List[List[int]]) -> int:
         def is_prime(x: int) -> bool:
-            if x < 2:
-                return False
-            return all(x % i for i in range(2, int(sqrt(x)) + 1))
+            return False if x < 2 else all(x % i for i in range(2, int(sqrt(x)) + 1))
 
         n = len(nums)
         ans = 0

@@ -37,24 +37,22 @@ def generate_readme(result):
     md_table_cn = [item['md_table_row_cn'] for item in result]
     md_table_en = [item['md_table_row_en'] for item in result]
 
-    # generate README.md
-    items = []
-    table_cn = '\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |'
-    for item in sorted(md_table_cn, key=lambda x: x[0]):
-        items.append(
-            f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |'
-        )
-    table_cn += ''.join(items)
-
-    # generate README_EN.md
-    items = []
-    table_en = '\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |'
-    for item in sorted(md_table_en, key=lambda x: x[0]):
-        items.append(
-            f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |'
-        )
-    table_en += ''.join(items)
-
+    items = [
+        f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |'
+        for item in sorted(md_table_cn, key=lambda x: x[0])
+    ]
+    table_cn = (
+        '\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |'
+        + ''.join(items)
+    )
+    items = [
+        f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |'
+        for item in sorted(md_table_en, key=lambda x: x[0])
+    ]
+    table_en = (
+        '\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |'
+        + ''.join(items)
+    )
     with open('./README.md', 'w', encoding='utf-8') as f:
         f.write(readme_cn.format(table_cn))
     with open('./README_EN.md', 'w', encoding='utf-8') as f:
@@ -107,10 +105,10 @@ def generate_summary(result):
     summary_cn = summary_en = ''
     m = {int(item['frontend_question_id']): item for item in result}
     for file in sorted(os.listdir("./"), key=lambda x: x.lower()):
-        if os.path.isdir("./" + file) and file != '__pycache__':
+        if os.path.isdir(f"./{file}") and file != '__pycache__':
             summary_cn += f'\n- {file}\n'
             summary_en += f'\n- {file}\n'
-            for sub in sorted(os.listdir('./' + file), key=lambda x: x.lower()):
+            for sub in sorted(os.listdir(f'./{file}'), key=lambda x: x.lower()):
                 sub = sub.replace('`', ' ')
                 enc = quote(sub)
 
@@ -161,7 +159,7 @@ def refresh(result):
         en_content = en_content.replace(en_content[i + 2 : j], title_en)
 
         # update question content
-        old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S).group(1)
+        old_content = re.search("<!-- 这里写题目描述 -->(.*?)## 解法", cn_content, re.S)[1]
         cn_content = cn_content.replace(
             old_content, "\n\n" + question['content_cn'] + "\n\n"
         ).replace("\n\n    <ul>", "\n    <ul>")
@@ -183,7 +181,7 @@ def refresh(result):
 
         old_content = re.search(
             "## Description(.*?)## Solutions", en_content, re.S
-        ).group(1)
+        )[1]
         en_content = en_content.replace(
             old_content, "\n\n" + question['content_en'] + "\n\n"
         ).replace("\n\n    <ul>", "\n    <ul>")

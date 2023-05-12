@@ -18,7 +18,7 @@ class Solution:
             n = len(q)
             head = ListNode(-1)
             tail = head
-            for i in range(n):
+            for _ in range(n):
                 front = q.pop(0)
                 node = ListNode(front.val)
                 tail.next = node

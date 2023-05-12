@@ -16,8 +16,7 @@ class Solution:
         p = head
         while True:
             if (
-                p.val <= insertVal
-                and insertVal <= p.next.val
+                p.val <= insertVal <= p.next.val
                 or p.val > p.next.val
                 and (insertVal <= p.next.val or insertVal >= p.val)
                 or p.next == head

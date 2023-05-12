@@ -12,7 +12,4 @@ class Solution:
         for i in range(n - 2, -1, -1):
             right_max[i] = max(right_max[i + 1], height[i])
 
-        res = 0
-        for i in range(n):
-            res += min(left_max[i], right_max[i]) - height[i]
-        return res
+        return sum(min(left_max[i], right_max[i]) - height[i] for i in range(n))

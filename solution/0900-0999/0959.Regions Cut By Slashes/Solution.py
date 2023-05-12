@@ -13,7 +13,7 @@ class Solution:
                 size -= 1
 
         n = len(grid)
-        size = n * n * 4
+        size = n**2 * 4
         p = list(range(size))
         for i, row in enumerate(grid):
             for j, v in enumerate(row):

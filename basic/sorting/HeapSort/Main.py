@@ -25,7 +25,7 @@ for i in range(n // 2, 0, -1):
     down(i)
 
 res = []
-for i in range(m):
+for _ in range(m):
     res.append(h[1])
     h[1] = h[size]
     size -= 1

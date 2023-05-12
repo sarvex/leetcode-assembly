@@ -9,7 +9,7 @@ class Solution:
                     vis.add((a, status))
 
         n = len(grid)
-        target = (n * n - 2, n * n - 1)
+        target = n**2 - 2, n**2 - 1
         q = deque([(0, 1)])
         vis = {(0, 0)}
         ans = 0

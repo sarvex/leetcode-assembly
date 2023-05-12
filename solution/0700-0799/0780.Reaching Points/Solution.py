@@ -5,10 +5,6 @@ class Solution:
                 tx %= ty
             else:
                 ty %= tx
-        if tx == sx and ty == sy:
-            return True
         if tx == sx:
-            return ty > sy and (ty - sy) % tx == 0
-        if ty == sy:
-            return tx > sx and (tx - sx) % ty == 0
-        return False
+            return True if ty == sy else ty > sy and (ty - sy) % tx == 0
+        return tx > sx and (tx - sx) % ty == 0 if ty == sy else False

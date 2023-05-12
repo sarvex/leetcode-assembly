@@ -1,7 +1,6 @@
 class Solution:
     def minimalKSum(self, nums: List[int], k: int) -> int:
-        nums.append(0)
-        nums.append(2 * 10**9)
+        nums.extend((0, 2 * 10**9))
         nums.sort()
         ans = 0
         for a, b in pairwise(nums):

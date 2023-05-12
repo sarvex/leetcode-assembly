@@ -16,6 +16,5 @@ class Solution:
         while stk:
             node = stk.pop()
             ans.append(node.val)
-            for child in node.children[::-1]:
-                stk.append(child)
+            stk.extend(iter(node.children[::-1]))
         return ans

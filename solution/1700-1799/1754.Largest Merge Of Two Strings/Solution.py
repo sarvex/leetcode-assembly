@@ -9,6 +9,5 @@ class Solution:
             else:
                 ans.append(word2[j])
                 j += 1
-        ans.append(word1[i:])
-        ans.append(word2[j:])
+        ans.extend((word1[i:], word2[j:]))
         return "".join(ans)

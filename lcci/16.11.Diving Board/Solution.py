@@ -4,7 +4,4 @@ class Solution:
             return []
         if longer == shorter:
             return [longer * k]
-        ans = []
-        for i in range(k + 1):
-            ans.append(longer * i + shorter * (k - i))
-        return ans
+        return [longer * i + shorter * (k - i) for i in range(k + 1)]

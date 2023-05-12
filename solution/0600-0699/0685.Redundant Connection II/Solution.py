@@ -31,7 +31,7 @@ class Solution:
                     cycle = i
         if conflict is None:
             return edges[cycle]
-        v = edges[conflict][1]
         if cycle is not None:
+            v = edges[conflict][1]
             return [p[v], v]
         return edges[conflict]

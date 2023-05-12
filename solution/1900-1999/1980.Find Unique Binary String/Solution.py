@@ -5,5 +5,5 @@ class Solution:
             mask |= 1 << x.count("1")
         n = len(nums)
         for i in range(n + 1):
-            if mask >> i & 1 ^ 1:
+            if mask >> i & 0:
                 return "1" * i + "0" * (n - i)

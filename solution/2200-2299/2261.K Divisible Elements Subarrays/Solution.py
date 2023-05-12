@@ -9,6 +9,6 @@ class Solution:
                 cnt += x % p == 0
                 if cnt > k:
                     break
-                t += str(x) + ","
+                t += f"{str(x)},"
                 s.add(t)
         return len(s)

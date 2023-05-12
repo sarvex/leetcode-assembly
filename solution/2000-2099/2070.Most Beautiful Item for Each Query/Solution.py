@@ -3,11 +3,9 @@ class Solution:
         items.sort()
         prices = [p for p, _ in items]
         mx = [items[0][1]]
-        for _, b in items[1:]:
-            mx.append(max(mx[-1], b))
+        mx.extend(max(mx[-1], b) for _, b in items[1:])
         ans = [0] * len(queries)
         for i, q in enumerate(queries):
-            j = bisect_right(prices, q)
-            if j:
+            if j := bisect_right(prices, q):
                 ans[i] = mx[j - 1]
         return ans

@@ -17,7 +17,7 @@ class HitCounter:
         Return the number of hits in the past 5 minutes.
         @param timestamp - The current timestamp (in seconds granularity).
         """
-        return sum([v for t, v in self.counter.items() if t + 300 > timestamp])
+        return sum(v for t, v in self.counter.items() if t + 300 > timestamp)
 
 
 # Your HitCounter object will be instantiated and called as such:

@@ -10,7 +10,7 @@ class Solution:
                 for l, r in ('11', '88', '69', '96'):
                     ans.append(l + v + r)
                 if u != n:
-                    ans.append('0' + v + '0')
+                    ans.append(f'0{v}0')
             return ans
 
         return dfs(n)

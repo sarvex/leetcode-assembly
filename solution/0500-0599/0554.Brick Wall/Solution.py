@@ -6,6 +6,4 @@ class Solution:
             for brick in row[:-1]:
                 width += brick
                 cnt[width] += 1
-        if not cnt:
-            return len(wall)
-        return len(wall) - cnt[max(cnt, key=cnt.get)]
+        return len(wall) if not cnt else len(wall) - cnt[max(cnt, key=cnt.get)]

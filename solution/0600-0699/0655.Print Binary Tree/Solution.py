@@ -7,9 +7,7 @@
 class Solution:
     def printTree(self, root: Optional[TreeNode]) -> List[List[str]]:
         def height(root):
-            if root is None:
-                return -1
-            return 1 + max(height(root.left), height(root.right))
+            return -1 if root is None else 1 + max(height(root.left), height(root.right))
 
         def dfs(root, r, c):
             if root is None:

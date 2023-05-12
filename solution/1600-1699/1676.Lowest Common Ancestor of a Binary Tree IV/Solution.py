@@ -14,9 +14,7 @@ class Solution:
             if root is None or root.val in s:
                 return root
             left, right = dfs(root.left), dfs(root.right)
-            if left and right:
-                return root
-            return left or right
+            return root if left and right else left or right
 
         s = {node.val for node in nodes}
         return dfs(root)

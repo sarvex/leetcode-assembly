@@ -1,7 +1,6 @@
 mod = 10**9 + 7
 f = [1]
-for i in range(1, 10**5 + 1):
-    f.append(f[-1] * i % mod)
+f.extend(f[-1] * i % mod for i in range(1, 10**5 + 1))
 
 
 class Solution:

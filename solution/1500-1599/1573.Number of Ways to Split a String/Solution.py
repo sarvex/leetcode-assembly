@@ -7,7 +7,7 @@ class Solution:
                 if t == x:
                     return i
 
-        cnt, m = divmod(sum(c == '1' for c in s), 3)
+        cnt, m = divmod(s.count('1'), 3)
         if m:
             return 0
         n = len(s)

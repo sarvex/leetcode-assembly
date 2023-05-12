@@ -27,7 +27,7 @@ class Solution:
         for i, x in enumerate(bulbs, 1):
             tree.update(x, 1)
             case1 = (
-                x - k - 1 > 0
+                x - k > 1
                 and tree.query(x - k - 1) - tree.query(x - k - 2) == 1
                 and tree.query(x - 1) - tree.query(x - k - 1) == 0
             )

@@ -3,7 +3,7 @@ class Solution:
         if grid[0][0]:
             return False
         n = len(grid)
-        pos = [None] * (n * n)
+        pos = [None] * n**2
         for i in range(n):
             for j in range(n):
                 pos[grid[i][j]] = (i, j)

@@ -3,7 +3,7 @@ class Solution:
         if num == 0:
             return '0'
         if num < 0:
-            return '-' + self.convertToBase7(-num)
+            return f'-{self.convertToBase7(-num)}'
         ans = []
         while num:
             ans.append(str(num % 7))

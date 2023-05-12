@@ -43,8 +43,7 @@ def get_question_detail(question_title_slug):
         'Chrome/77.0.3865.120 Safari/537.36',
         'Connection': 'keep-alive',
         'Content-Type': 'application/json',
-        'Referer': 'https://leetcode.cn/problems/' + question_title_slug,
-        # lc-cn cookie here
+        'Referer': f'https://leetcode.cn/problems/{question_title_slug}',
         'cookie': '',
     }
     requests.post(
@@ -92,8 +91,8 @@ for question in questions:
     frontend_question_id = question['frontendQuestionId']
     title = str(question['title']).strip()
     title_cn = str(question['titleCn']).strip()
-    url = 'https://leetcode.cn/problems/' + question_title_slug
-    sub_folder = frontend_question_id + ". " + title_cn
+    url = f'https://leetcode.cn/problems/{question_title_slug}'
+    sub_folder = f"{frontend_question_id}. {title_cn}"
     topics = ','.join(
         [f'`{topic["nameTranslated"]}`' for topic in question['topicTags']]
     )
@@ -120,5 +119,5 @@ for question in questions:
 
 res = os.listdir(".")
 for file in res:
-    if os.path.isdir("./" + file) and file != '__pycache__':
+    if os.path.isdir(f"./{file}") and file != '__pycache__':
         print(f'- [{file}](/lcp/{quote(file)}/README.md)')

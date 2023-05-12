@@ -10,7 +10,7 @@ class Solution:
                     or i >= m
                     or j < 0
                     or j >= n
-                    or (board[i][j] != ' ' and board[i][j] != c)
+                    or board[i][j] not in [' ', c]
                 ):
                     return False
                 i, j = i + a, j + b

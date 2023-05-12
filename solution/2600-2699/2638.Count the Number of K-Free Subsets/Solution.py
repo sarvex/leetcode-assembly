@@ -11,9 +11,6 @@ class Solution:
             f[0] = 1
             f[1] = 2
             for i in range(2, m + 1):
-                if arr[i - 1] - arr[i - 2] == k:
-                    f[i] = f[i - 1] + f[i - 2]
-                else:
-                    f[i] = f[i - 1] * 2
+                f[i] = f[i - 1] + f[i - 2] if arr[i - 1] - arr[i - 2] == k else f[i - 1] * 2
             ans *= f[m]
         return ans

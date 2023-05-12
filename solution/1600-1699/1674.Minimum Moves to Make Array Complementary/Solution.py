@@ -18,6 +18,5 @@ class Solution:
         ans, s = n, 0
         for v in d[2 : limit * 2 + 1]:
             s += v
-            if ans > s:
-                ans = s
+            ans = min(ans, s)
         return ans

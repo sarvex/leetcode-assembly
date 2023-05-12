@@ -13,6 +13,4 @@ class Solution:
             x = 10**k
             y = int('1' * (k >> 1) or '0')
             return x + y
-        if a == b:
-            return n
-        return self.closestFair(n + 1)
+        return n if a == b else self.closestFair(n + 1)

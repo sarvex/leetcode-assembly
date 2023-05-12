@@ -37,9 +37,7 @@ class SegmentTree:
         if self.tr[u].l >= l and self.tr[u].r <= r:
             return self.tr[u].v
         mid = (self.tr[u].l + self.tr[u].r) >> 1
-        v = 0
-        if l <= mid:
-            v = self.query(u << 1, l, r)
+        v = self.query(u << 1, l, r) if l <= mid else 0
         if r > mid:
             v = max(v, self.query(u << 1 | 1, l, r))
         return v

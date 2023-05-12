@@ -20,10 +20,13 @@ class Solution:
                     j -= 1
                 else:
                     break
-            if i >= 0 and j >= 0:
-                if s[i] != t[j]:
-                    return False
-            elif i >= 0 or j >= 0:
+            if (
+                i >= 0
+                and j >= 0
+                and s[i] != t[j]
+                or (i < 0 or j < 0)
+                and (i >= 0 or j >= 0)
+            ):
                 return False
             i, j = i - 1, j - 1
         return True

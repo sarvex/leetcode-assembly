@@ -12,7 +12,4 @@ class Solution:
             s.add(b)
             outd[a] += 1
             ind[b] += 1
-        for c in s:
-            if ind[c] == len(s) - 1 and outd[c] == 0:
-                return c
-        return -1
+        return next((c for c in s if ind[c] == len(s) - 1 and outd[c] == 0), -1)

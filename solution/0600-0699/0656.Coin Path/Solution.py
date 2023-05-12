@@ -8,8 +8,7 @@ class Solution:
         for i in range(n - 2, -1, -1):
             if coins[i] != -1:
                 for j in range(i + 1, min(n, i + maxJump + 1)):
-                    if f[i] > f[j] + coins[i]:
-                        f[i] = f[j] + coins[i]
+                    f[i] = min(f[i], f[j] + coins[i])
         if f[0] == inf:
             return []
         ans = []

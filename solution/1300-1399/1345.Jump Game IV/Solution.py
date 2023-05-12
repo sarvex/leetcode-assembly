@@ -19,6 +19,6 @@ class Solution:
             if i + 1 < len(arr) and (i + 1) not in vis:
                 vis.add(i + 1)
                 q.append((i + 1, step))
-            if i - 1 >= 0 and (i - 1) not in vis:
+            if i >= 1 and (i - 1) not in vis:
                 vis.add(i - 1)
                 q.append((i - 1, step))

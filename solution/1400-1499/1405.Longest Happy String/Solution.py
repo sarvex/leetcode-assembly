@@ -9,10 +9,10 @@ class Solution:
             heappush(h, [-c, 'c'])
 
         ans = []
-        while len(h) > 0:
+        while h:
             cur = heappop(h)
             if len(ans) >= 2 and ans[-1] == cur[1] and ans[-2] == cur[1]:
-                if len(h) == 0:
+                if not h:
                     break
                 nxt = heappop(h)
                 ans.append(nxt[1])

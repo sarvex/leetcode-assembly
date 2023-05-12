@@ -18,8 +18,7 @@ class Codec:
         q = deque([root])
         ans = []
         while q:
-            node = q.popleft()
-            if node:
+            if node := q.popleft():
                 ans.append(str(node.val))
                 q.append(node.left)
                 q.append(node.right)

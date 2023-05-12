@@ -5,7 +5,8 @@ class Solution:
         def dfs(source, target, seen):
             x, y = source
             if (
-                not (0 <= x < 10**6 and 0 <= y < 10**6)
+                not 0 <= x < 10**6
+                or not 0 <= y < 10**6
                 or (x, y) in blocked
                 or (x, y) in seen
             ):
@@ -19,5 +20,5 @@ class Solution:
                     return True
             return False
 
-        blocked = set((x, y) for x, y in blocked)
+        blocked = set(blocked)
         return dfs(source, target, set()) and dfs(target, source, set())

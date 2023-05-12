@@ -10,7 +10,7 @@ class Solution:
             cur = root
             for c in w[::-1]:
                 idx = ord(c) - ord("a")
-                if cur.children[idx] == None:
+                if cur.children[idx] is None:
                     cur.children[idx] = Trie()
                 cur = cur.children[idx]
         return self.dfs(root, 1)

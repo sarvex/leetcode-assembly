@@ -13,9 +13,7 @@ class Solution:
             right = lca(root.right, p, q)
             if left is None:
                 return right
-            if right is None:
-                return left
-            return root
+            return left if right is None else root
 
         def dfs(root, v):
             if root is None:
@@ -23,9 +21,7 @@ class Solution:
             if root.val == v:
                 return 0
             left, right = dfs(root.left, v), dfs(root.right, v)
-            if left == right == -1:
-                return -1
-            return 1 + max(left, right)
+            return -1 if left == right == -1 else 1 + max(left, right)
 
         g = lca(root, p, q)
         return dfs(g, p) + dfs(g, q)

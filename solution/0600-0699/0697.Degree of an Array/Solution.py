@@ -11,6 +11,5 @@ class Solution:
         for v in nums:
             if cnt[v] == degree:
                 t = right[v] - left[v] + 1
-                if ans > t:
-                    ans = t
+                ans = min(ans, t)
         return ans

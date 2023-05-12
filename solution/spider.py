@@ -16,7 +16,7 @@ user_agent = (
     'Chrome/77.0.3865.120 Safari/537.36'
 )
 sub_folders = [
-    str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)
+    f'{str(i * 100).zfill(4)}-{str(i * 100 + 99).zfill(4)}' for i in range(100)
 ]
 cn_graph_url = 'https://leetcode.cn/graphql'
 difficulty = dict(Easy='简单', Medium='中等', Hard='困难')
@@ -139,7 +139,7 @@ class Spider:
             'User-Agent': user_agent,
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
-            'Referer': 'https://leetcode.cn/problems/' + question_title_slug,
+            'Referer': f'https://leetcode.cn/problems/{question_title_slug}',
             'cookie': self.cookie_cn,
         }
         self.session.post(
@@ -183,8 +183,9 @@ class Spider:
         time.sleep(random.random() * 0.2)
         for _ in range(retry_times + 1):
             try:
-                question_detail = self._get_question_detail(question_title_slug)
-                if question_detail:
+                if question_detail := self._get_question_detail(
+                    question_title_slug
+                ):
                     return question_detail
             except Exception as e:
                 print(f'error:{str(e)}')

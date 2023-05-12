@@ -1,9 +1,7 @@
 class Codec:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string."""
-        ans = []
-        for s in strs:
-            ans.append('{:4}'.format(len(s)) + s)
+        ans = ['{:4}'.format(len(s)) + s for s in strs]
         return ''.join(ans)
 
     def decode(self, s: str) -> List[str]:

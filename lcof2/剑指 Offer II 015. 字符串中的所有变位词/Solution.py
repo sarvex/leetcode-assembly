@@ -17,4 +17,4 @@ class Solution:
         return False
 
     def check(self, window: List[int]) -> bool:
-        return all([cnt == 0 for cnt in window])
+        return all(cnt == 0 for cnt in window)

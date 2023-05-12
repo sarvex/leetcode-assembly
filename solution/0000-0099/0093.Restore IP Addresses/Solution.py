@@ -1,11 +1,7 @@
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
         def check(s):
-            if not (0 <= int(s) <= 255):
-                return False
-            if s[0] == '0' and len(s) > 1:
-                return False
-            return True
+            return False if not (0 <= int(s) <= 255) else s[0] != '0' or len(s) <= 1
 
         def dfs(s, t):
             if len(t) == 4:

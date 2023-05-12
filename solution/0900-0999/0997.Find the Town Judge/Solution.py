@@ -5,7 +5,6 @@ class Solution:
         for a, b in trust:
             cnt1[a] += 1
             cnt2[b] += 1
-        for i in range(1, n + 1):
-            if cnt1[i] == 0 and cnt2[i] == n - 1:
-                return i
-        return -1
+        return next(
+            (i for i in range(1, n + 1) if cnt1[i] == 0 and cnt2[i] == n - 1), -1
+        )

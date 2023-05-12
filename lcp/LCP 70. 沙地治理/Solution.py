@@ -4,13 +4,11 @@ class Solution:
         k = 0
         for i in range(size, 1, -1):
             if k == 0:
-                for j in range(1, i << 1, 2):
-                    ans.append([i, j])
+                ans.extend([i, j] for j in range(1, i << 1, 2))
             elif k == 1:
                 ans.append([i, 2])
             elif k == 2:
-                for j in range(3, i << 1, 2):
-                    ans.append([i, j])
+                ans.extend([i, j] for j in range(3, i << 1, 2))
             else:
                 ans.append([i, 1])
             k = (k + 1) % 4

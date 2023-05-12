@@ -9,7 +9,7 @@ class Solution:
             else:
                 ans.append(r)
                 r -= 1
-        for i in range(k, n):
+        for _ in range(k, n):
             if k % 2 == 0:
                 ans.append(r)
                 r -= 1

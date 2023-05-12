@@ -7,15 +7,14 @@ class Solution:
                 continue
             if c == '?':
                 cond = True
-            else:
-                if cond:
-                    if c == 'T':
-                        x = stk.pop()
-                        stk.pop()
-                        stk.append(x)
-                    else:
-                        stk.pop()
-                    cond = False
+            elif cond:
+                if c == 'T':
+                    x = stk.pop()
+                    stk.pop()
+                    stk.append(x)
                 else:
-                    stk.append(c)
+                    stk.pop()
+                cond = False
+            else:
+                stk.append(c)
         return stk[0]

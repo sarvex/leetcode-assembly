@@ -22,11 +22,11 @@ class Solution:
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
         return max(
-            [
+            (
                 size[i * n + j]
                 for i in range(m)
                 for j in range(n)
                 if find(i * n + j) != find(m * n)
-            ],
+            ),
             default=0,
         )

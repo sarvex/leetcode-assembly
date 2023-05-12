@@ -7,9 +7,7 @@ class Solution:
         def dfs(i: int, k: int) -> bool:
             if i == n - 1:
                 return True
-            if g[i][k] == -1:
-                return False
-            return dfs(g[i][k], k ^ 1)
+            return False if g[i][k] == -1 else dfs(g[i][k], k ^ 1)
 
         n = len(arr)
         g = [[0] * 2 for _ in range(n)]

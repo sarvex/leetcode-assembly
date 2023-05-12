@@ -4,12 +4,10 @@ class Solution:
             if i >= m or j >= n or grid[i][j] == 0:
                 return False
             grid[i][j] = 0
-            if i == m - 1 and j == n - 1:
-                return True
-            return dfs(i + 1, j) or dfs(i, j + 1)
+            return True if i == m - 1 and j == n - 1 else dfs(i + 1, j) or dfs(i, j + 1)
 
         m, n = len(grid), len(grid[0])
         a = dfs(0, 0)
         grid[0][0] = grid[-1][-1] = 1
         b = dfs(0, 0)
-        return not (a and b)
+        return not a or not b

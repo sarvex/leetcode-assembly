@@ -7,7 +7,7 @@ class SortedStack:
         while not self.isEmpty() and self.s[-1] < val:
             t.append(self.s.pop())
         self.s.append(val)
-        while len(t) > 0:
+        while t:
             self.s.append(t.pop())
 
     def pop(self) -> None:

@@ -4,6 +4,4 @@ class Solution:
         for a, b in zip(s1, s2):
             xy += a < b
             yx += a > b
-        if (xy + yx) % 2:
-            return -1
-        return xy // 2 + yx // 2 + xy % 2 + yx % 2
+        return -1 if (xy + yx) % 2 else xy // 2 + yx // 2 + xy % 2 + yx % 2

@@ -1,10 +1,10 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         index = {c: i for i, c in enumerate(order)}
+        flag = False
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i + 1]
             l1, l2 = len(w1), len(w2)
-            flag = False
             for j in range(max(l1, l2)):
                 i1, i2 = (
                     -1 if j >= l1 else index[w1[j]],

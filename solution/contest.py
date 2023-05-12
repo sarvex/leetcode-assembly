@@ -33,7 +33,7 @@ def weekly(contest):
         print(res)
         return res
     except Exception as e:
-        print(str(e))
+        print(e)
 
 
 def biweekly(contest):
@@ -46,7 +46,7 @@ def biweekly(contest):
         print(res)
         return res
     except Exception as e:
-        print(str(e))
+        print(e)
 
 
 def handle(result: dict):
@@ -114,31 +114,6 @@ def generate_contest_list():
     with open('contest_list.json', 'r', encoding='utf-8') as f:
         contest_list = list(json.loads(f.read()))
 
-    contest_readme_prefix = """# 力扣竞赛
-
-[English Version](/solution/CONTEST_README_EN.md)
-
-
-## 段位与荣誉勋章
-
-竞赛排名根据竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
-
-如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
-
-| 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
-| ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
-| LV3 | 5%  | Guardian | &ge;2251.88 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2 | 20% | Knight   | &ge;1879.80 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
-| LV1 | 75% | -        | -         | -                                                                           |
-
-力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
-
-## 赛后估分网站
-
-- https://lcpredictor.herokuapp.com
-- https://lccn.lbao.site
-
-## 往期竞赛\n\n"""
     contest_readme_en_prefix = """# LeetCode Contest
 
 [中文文档](/solution/CONTEST_README.md)
@@ -171,13 +146,12 @@ Get your rating changes right after the completion of LeetCode contests, https:/
 
     for _, title, title_en, qs, start_time, duration, user_num in contest_list:
         v = (
-            "#### "
-            + title
-            + f'({format_time(start_time) + ", " + format_duration(duration)}) '
+            f"#### {title}"
+            + f'({format_time(start_time)}, {format_duration(duration)}) '
             + f'参赛人数 {user_num}'
             + "\n\n"
         )
-        v_en = "#### " + title_en + "\n\n"
+        v_en = f"#### {title_en}" + "\n\n"
         for q in qs:
             slug = q['title_slug']
             data = m.get(slug)
@@ -188,6 +162,31 @@ Get your rating changes right after the completion of LeetCode contests, https:/
         if qs:
             items.append(v)
             en_items.append(v_en)
+    contest_readme_prefix = """# 力扣竞赛
+
+[English Version](/solution/CONTEST_README_EN.md)
+
+
+## 段位与荣誉勋章
+
+竞赛排名根据竞赛积分（周赛和双周赛）进行计算，注册新用户的基础分值为 1500 分，在竞赛积分 &ge;1600 的用户中，根据比例 5%, 20%, 75% 设定三档段位，段位每周比赛结束后计算一次。
+
+如果竞赛积分处于段位的临界值，在每周比赛结束重新计算后会出现段位升级或降级的情况。段位升级或降级后会自动替换对应的荣誉勋章。
+
+| 段位  | 比例   | 段位名   | 国服分数线    | 勋章                                                                    |
+| ----- | ------ | -------- | --------- | --------------------------------------------------------------------------- |
+| LV3 | 5%  | Guardian | &ge;2251.88 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2 | 20% | Knight   | &ge;1879.80 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV1 | 75% | -        | -         | -                                                                           |
+
+力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
+
+## 赛后估分网站
+
+- https://lcpredictor.herokuapp.com
+- https://lccn.lbao.site
+
+## 往期竞赛\n\n"""
     content_cn = contest_readme_prefix + "\n\n".join(items)
     content_en = contest_readme_en_prefix + "\n\n".join(en_items)
     with open("CONTEST_README.md", 'w', encoding='utf-8') as f:

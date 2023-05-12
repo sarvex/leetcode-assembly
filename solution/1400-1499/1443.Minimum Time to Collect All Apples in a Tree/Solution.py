@@ -7,9 +7,7 @@ class Solution:
             nxt_cost = 0
             for v in g[u]:
                 nxt_cost += dfs(v, 2)
-            if not hasApple[u] and nxt_cost == 0:
-                return 0
-            return cost + nxt_cost
+            return 0 if not hasApple[u] and nxt_cost == 0 else cost + nxt_cost
 
         g = defaultdict(list)
         for u, v in edges:

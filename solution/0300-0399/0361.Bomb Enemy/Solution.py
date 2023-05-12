@@ -33,6 +33,6 @@ class Solution:
                     t += 1
                 g[i][j] += t
         return max(
-            [g[i][j] for i in range(m) for j in range(n) if grid[i][j] == '0'],
+            (g[i][j] for i in range(m) for j in range(n) if grid[i][j] == '0'),
             default=0,
         )

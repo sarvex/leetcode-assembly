@@ -1,7 +1,7 @@
 class Solution:
     def canCross(self, stones: List[int]) -> bool:
         n = len(stones)
-        dp = [[False] * n for i in range(n)]
+        dp = [[False] * n for _ in range(n)]
         dp[0][0] = True
         for i in range(1, n):
             for j in range(i):

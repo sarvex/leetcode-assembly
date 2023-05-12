@@ -7,7 +7,7 @@ class Solution:
             for j in range(n):
                 if grid[i][j] == 0:
                     f[i][j] = -1
-                elif not (i == m - 1 or j == 0 or j == n - 1):
+                elif i != m - 1 and j != 0 and j != n - 1:
                     f[i][j] = min(f[i + 1][j - 1], f[i + 1][j], f[i + 1][j + 1]) + 1
                     ans += f[i][j]
         for i in range(m):

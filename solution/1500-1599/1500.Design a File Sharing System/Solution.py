@@ -21,10 +21,7 @@ class FileSharing:
     def request(self, userID: int, chunkID: int) -> List[int]:
         if chunkID < 1 or chunkID > self.chunks:
             return []
-        res = []
-        for k, v in self.user_chunks.items():
-            if chunkID in v:
-                res.append(k)
+        res = [k for k, v in self.user_chunks.items() if chunkID in v]
         if res:
             self.user_chunks[userID].add(chunkID)
         return sorted(res)

@@ -6,6 +6,4 @@ class Solution:
         cnt = Counter(ranks)
         if any(v >= 3 for v in cnt.values()):
             return 'Three of a Kind'
-        if any(v == 2 for v in cnt.values()):
-            return 'Pair'
-        return 'High Card'
+        return 'Pair' if any(v == 2 for v in cnt.values()) else 'High Card'

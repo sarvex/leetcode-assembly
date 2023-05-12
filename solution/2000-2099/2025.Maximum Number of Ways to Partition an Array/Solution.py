@@ -7,17 +7,13 @@ class Solution:
             s[i] = s[i - 1] + nums[i]
             right[s[i - 1]] += 1
 
-        ans = 0
-        if s[-1] % 2 == 0:
-            ans = right[s[-1] // 2]
-
+        ans = right[s[-1] // 2] if s[-1] % 2 == 0 else 0
         left = defaultdict(int)
         for v, x in zip(s, nums):
             d = k - x
             if (s[-1] + d) % 2 == 0:
                 t = left[(s[-1] + d) // 2] + right[(s[-1] - d) // 2]
-                if ans < t:
-                    ans = t
+                ans = max(ans, t)
             left[v] += 1
             right[v] -= 1
         return ans

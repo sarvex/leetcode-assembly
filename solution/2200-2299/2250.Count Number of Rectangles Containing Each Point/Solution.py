@@ -5,7 +5,7 @@ class Solution:
         d = defaultdict(list)
         for x, y in rectangles:
             d[y].append(x)
-        for y in d.keys():
+        for y in d:
             d[y].sort()
         ans = []
         for x, y in points:

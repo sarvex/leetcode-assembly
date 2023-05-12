@@ -13,8 +13,8 @@ class Solution:
             size[pb] += size[pa]
 
         n = len(grid)
-        p = list(range(n * n))
-        size = [1] * (n * n)
+        p = list(range(n**2))
+        size = [1] * n**2
         for i, row in enumerate(grid):
             for j, v in enumerate(row):
                 if v:

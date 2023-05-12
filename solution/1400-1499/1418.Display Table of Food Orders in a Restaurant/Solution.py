@@ -12,7 +12,6 @@ class Solution:
         res = [['Table'] + foods]
         for table in tables:
             t = [str(table)]
-            for food in foods:
-                t.append(str(mp[f'{table}.{food}']))
+            t.extend(str(mp[f'{table}.{food}']) for food in foods)
             res.append(t)
         return res
